@@ -291,19 +291,17 @@ def _(Agent):
 
 
 @app.cell
-async def _(mcp_agent):
-    mcp_result = await mcp_agent.run(
-        "I am a Taurus. Use a tool and answer with only the horoscope."
+def _(mcp_agent):
+    mcp_chat = mo.ui.chat(
+        mo.ai.llm.pydantic_ai(mcp_agent),
+        prompts=[
+            "I am a Taurus. What's the horoscope for next week?",
+            "How is an agent loop implemented in PydanticAI?.",
+            "Show me the available tools before answering.",
+        ],
+        show_configuration_controls=True,
     )
-    mcp_result.output
-    return
-
-
-@app.cell
-async def _(mcp_agent):
-    result_mcp = await mcp_agent.run("I am a taurus")
-
-    result_mcp.output
+    mcp_chat
     return
 
 
