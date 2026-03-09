@@ -14,7 +14,6 @@ with app.setup:
 
     client = OpenAI()
 
-
     def get_horoscope(sign):
         return f"{sign}: Next Tuesday you will befriend a baby otter."
 
@@ -126,7 +125,6 @@ def _():
 def _(TOOL_REGISTRY, response):
     import json
 
-
     def call_tool(item, tool_registry=TOOL_REGISTRY):
         if item.type == "function_call":
             tool_name, kwargs = item.name, json.loads(item.arguments)
@@ -137,7 +135,6 @@ def _(TOOL_REGISTRY, response):
                 raise ValueError("This tool does not exist") from e
 
         return chosen_tool(**kwargs)
-
 
     call_tool(response.output[0])
     return call_tool, json
@@ -192,7 +189,6 @@ def _(TOOL_REGISTRY, call_tool, json, tools):
         print("Final output:")
         print(response.model_dump_json(indent=2))
         print("\n" + response.output_text)
-
 
     ask_horoscope(
         "I am a taurus",
@@ -296,7 +292,7 @@ def _(mcp_agent):
         mo.ai.llm.pydantic_ai(mcp_agent),
         prompts=[
             "I am a Taurus. What's the horoscope for next week?",
-            "How is an agent loop implemented in PydanticAI?.",
+            "How is an agent loop implemented in PydanticAI?",
             "Show me the available tools before answering.",
         ],
         show_configuration_controls=True,
