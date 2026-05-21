@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 authors = [{ name = "baggiponte", email = "57922983+baggiponte@users.noreply.github.com" }]
 requires-python = ">=3.14"
-dependencies = ["fastmcp>=3.1.0", "openai>=2.24.0", "pydantic-ai>=1.65.0"]
+dependencies = ["fastmcp>=3.1.0", "openai>=2.24.0", "pydantic-ai>=1.99.0"]
 
 [dependency-groups]
 dev = ["marimo>=0.20.4", "ruff>=0.15.4"]
